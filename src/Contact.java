@@ -4,7 +4,7 @@ public class Contact
     private String relationship;
     private String phoneNumber;
 
-    public Contact(String name, String relationship, String phoneNumber)
+    public Contact(String name,String phoneNumber, String relationship )
     {
         this.name = name;
         this.relationship = relationship;
