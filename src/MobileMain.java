@@ -9,7 +9,7 @@ public class MobileMain
     public static void main(String[] args)
     {
         boolean quit =false;
-//        turnOnPhone();
+//        turnOnPhone(); //Not sure what to do with this yet but assuming it is just fluff like turning on device and maybe displaying the provider
         printActions();
         while(!quit)
         {
