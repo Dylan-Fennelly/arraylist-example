@@ -24,7 +24,16 @@ public class Main
             }
 
             keyboard.nextLine();
-
+            enum menuOptions
+            {
+                PRINT,
+                ADD,
+                MODIFY,
+                REMOVE,
+                SEARCH,
+                QUIT
+            }
+            menuOptions menu;
             switch(choice)
             {
                 case 0:
