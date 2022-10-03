@@ -9,11 +9,11 @@ public class MobileMain
     public static void main(String[] args)
     {
         boolean quit =false;
-//        turnOnPhone();
+        turnOnPhone();
         printActions();
         while(!quit)
         {
-            System.out.println("Enter action: (6 to show available actions");
+            System.out.println("Enter action: 6 - to show available actions");
             int action = keyboard.nextInt();
             keyboard.nextLine();
 
@@ -44,6 +44,11 @@ public class MobileMain
                     break;
             }
         }
+    }
+
+    private static void turnOnPhone()
+    {
+        System.out.println("Turning on phone.....");
     }
 
     private static void printActions()
