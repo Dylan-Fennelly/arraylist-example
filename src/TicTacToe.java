@@ -1,122 +1,175 @@
+import java.util.Scanner;
+
 public class TicTacToe
 {
     private char[][] board;
     private char currentPlayer;
     private int rows = 3;
-    private int cols = 3;
+    private int columns = 3;
+    private Scanner keyboard = new Scanner(System.in);
 
     public TicTacToe()
     {
-        this.board = new char[rows][cols];
-        currentPlayer ='x';
-        initializeBoard();
+        this.board = new char[rows][columns];
+
+        currentPlayer = 'x';
+        initialiseBoard();
     }
 
-    private void initializeBoard()
+    private void initialiseBoard()
     {
-        for(int i =0; i < rows; i++)
+        for (int i = 0; i < rows; i++)
         {
-            for(int j = 0; j < cols;j++)
+            for (int j = 0; j < columns; j++)
             {
-                board[i][j]='-';
+                board[i][j] = '-';
             }
         }
     }
+
     public void printBoard()
     {
-        System.out.println("----------------------");
-        for(int i = 0; i< rows;i++)
+        System.out.println("-----------------");
+        for (int i = 0; i < rows; i++)
         {
-            System.out.print("| ");
-            for(int j = 0;j<cols;j++)
+            for (int j = 0; j < columns; j++)
             {
-                if(j == cols -1)
+                if (j == columns - 1)
                 {
                     System.out.print(board[i][j]);
                 }
-                System.out.print(board[i][j]+ " | ");
+                else
+                {
+                    System.out.print(board[i][j] + " | ");
+                }
             }
+
             System.out.println();
         }
-        System.out.println("----------------------");
+        System.out.println("-----------------");
     }
-    private boolean isBoardFull()
+
+    public boolean isBoardFull()
     {
-        for(int i =0;i<rows;i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0 ;j<cols; j++)
+            for (int j = 0; j < columns; j++)
             {
-                if(board[i][j]=='-')
+                if (board[i][j] == '-')
                 {
                     return false;
                 }
             }
         }
+
         return true;
     }
-    private boolean checkForWinner()
+
+    public boolean checkForWinner()
     {
-        return (checkRows() || checkColumns() || checkDiagonal());
+        return (checkRows() || checkColumns() || checkDiagonals());
+    }
+
+    public void announceWinner()
+    {
+        System.out.println("Player " + currentPlayer + " won!");
     }
 
     private boolean checkRows()
     {
-        for (int i = 0;i<rows;i++)
+        for (int i = 0; i < rows; i++)
         {
-            if(board[i][0] != '-' && board[i][0] == board[i][1] && board[i][0] == board[i][2])
+            if (board[i][0] != '-' && board[i][0] == board[i][1] && board[i][0] == board[i][2])
             {
                 return true;
             }
         }
         return false;
     }
+
     private boolean checkColumns()
     {
-        for (int i = 0;i<cols;i++)
+        for (int j = 0; j < columns; j++)
         {
-            if(board[0][i] != '-' && board[0][i] == board[1][i] && board[0][i] == board[2][i])
+            if (board[0][j] != '-' && board[0][j] == board[1][j] && board[0][j] == board[2][j])
             {
                 return true;
             }
         }
         return false;
     }
-    private boolean checkDiagonal()
+
+    private boolean checkDiagonals()
     {
-        return (board[0][0] != '-' && board[0][0]== board[1][1] && board[0][0] == board[2][2]
-                || board[0][2] != '-' && board[0][2] == board[1][1] && board[0][2] == board[2][0]);
+        return (board[0][0] != '-' && board[0][0] == board[1][1] && board[0][0] == board[2][2])
+                || (board[0][2] != '-' && board[0][2] == board[1][1] && board[0][2] == board[2][0]);
     }
-    private void changePlayer()
+
+    public void changePlayer()
     {
-        //currentPlayer = (currentPlayer == 'x') ? 'o':'x';
-        if(currentPlayer == 'x')
+        //The short way -> currentPlayer = (currentPlayer == 'x') ? 'o' : 'x';
+        if (currentPlayer == 'x')
         {
             currentPlayer = 'o';
         }
         else
         {
-            currentPlayer ='x';
+            currentPlayer = 'x';
         }
     }
-    /*Ask the user for the row and col where they want to put their move
-     and update the board with the currentPlayer's character at the row and col
-     */
-    private void updateBoard()
+
+    public void updateBoard()
     {
         boolean validInput = false;
         do
         {
-            if(currentPlayer == 'x')
+            System.out.println("Player " + currentPlayer + ", enter your move 1 1 -> 3 3: ");
+            /*if (currentPlayer == 'x')
             {
-                System.out.println("Player X,enter your move(1,1)->(3,3): ");
+                System.out.println("Player " + currentPlayer + ", enter your move 1 1 -> 3 3: ");
             }
             else
             {
-                System.out.println("Player O,enter your move(1,1)->(3,3): ");
-            }
+                System.out.println("Player " + currentPlayer + ", enter your move 1 1 -> 3 3: ");
+            }*/
+
             int row = keyboard.nextInt() - 1;
-            int col = keyboard.nextInt() - 1;
-            //finish me please !!
-        }while{!validInput);
+            int column = keyboard.nextInt() - 1;
+
+            if (row >= 0 && row < rows && column >= 0 && column < columns && board[row][column] == '-')
+            {
+                board[row][column] = currentPlayer;
+                validInput = true;
+            }
+            else
+            {
+                System.out.println("Sorry, the move at " + (row + 1) + " " + (column + 1) + " is not valid. Try again");
+            }
+        }while (!validInput);
+    }
+
+    public void pickPlayer()
+    {
+        char choice;
+
+        do
+        {
+            System.out.println("Please enter either 'x' or 'o' to pick your symbol: ");
+            choice = keyboard.nextLine().charAt(0);
+
+            if (choice != 'x' && choice != 'o')
+            {
+                System.out.println("Not a correct symbol");
+            }
+        }while (choice != 'x' && choice != 'o');
+
+        if (choice == 'x')
+        {
+            currentPlayer = 'x';
+        }
+        else
+        {
+            currentPlayer = 'o';
+        }
     }
 }
