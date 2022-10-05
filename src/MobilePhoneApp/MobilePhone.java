@@ -1,3 +1,5 @@
+package MobilePhoneApp;
+
 import java.util.ArrayList;
 
 public class MobilePhone
@@ -20,7 +22,7 @@ public class MobilePhone
     {
         if(findContact(contact.getName())>=0)
         {
-            System.out.println("Contact already exits");
+            System.out.println("MobilePhoneApp.Contact already exits");
             return false;
         }
         myContacts.add(contact);
@@ -88,7 +90,7 @@ public class MobilePhone
     }
     public void printContacts()
     {
-        System.out.println("Contact List");
+        System.out.println("MobilePhoneApp.Contact List");
         for(int i = 0; i< this.myContacts.size();i++)
         {
             System.out.println((i+1) +"."+this.myContacts.get(i).getName()+ "->"+
