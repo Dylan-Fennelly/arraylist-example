@@ -87,7 +87,7 @@ public class MobileMain
         Contact existingContact = mobilePhone.queryContact(name);
         if(existingContact == null)
         {
-            System.out.println("MobilePhoneApp.Contact was not found");
+            System.out.println("Contact was not found");
             return;
         }
         System.out.println("Enter new contact name: ");
@@ -115,7 +115,7 @@ public class MobileMain
         Contact existingContact = mobilePhone.queryContact(name);
         if(existingContact == null)
         {
-            System.out.println("MobilePhoneApp.Contact was not found");
+            System.out.println("Contact was not found");
             return;
         }
         System.out.println("Are you sure you want to delete contact"+ existingContact.getName()+"?");
@@ -141,7 +141,7 @@ public class MobileMain
                     choiceLoop = true;
                     break;
                 case 2:
-                    System.out.println("MobilePhoneApp.Contact: "+ existingContact.getName() + " was not deleted");
+                    System.out.println("Contact: "+ existingContact.getName() + " was not deleted");
                     choiceLoop = true;
                     break;
                 default:

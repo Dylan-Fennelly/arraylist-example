@@ -13,7 +13,12 @@ public class Customer
         Transactions.add(initialAmount);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
+    }
+    public void addTransaction(double amount)
+    {
+        Transactions.add(amount);
     }
 }

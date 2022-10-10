@@ -8,8 +8,8 @@ public class Main
 
     public static void main(String[] args)
     {
-        System.out.println(Colours.BLUE +"Welcome to the banking application");
-        Colours.RESET;
+        System.out.println(Colours.BLUE +"Welcome to the banking application"+Colours.RESET);
+
         MenuOptions selectedOption = MenuOptions.CONTINUE;
 
         while(selectedOption != MenuOptions.QUIT)
@@ -36,17 +36,21 @@ public class Main
                     default:
                         System.out.println("Not a valid option. Please try again");
                 }
-            }
-            catch(IllegalAccessException e)
-            {
-                System.out.println("Selection out of range");
-            }
-            catch(ArrayIndexOutOfBoundsException e)
+            } catch(ArrayIndexOutOfBoundsException e)
             {
                 System.out.println("Selection out of range");
             }
         }
     }
+
+    private static void addCustomer() {
+
+    }
+
+    private static void addBranch() {
+
+    }
+
     private static void createBank()
     {
         System.out.println("Creating a bank");

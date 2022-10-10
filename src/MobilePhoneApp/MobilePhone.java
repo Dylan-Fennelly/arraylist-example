@@ -22,7 +22,7 @@ public class MobilePhone
     {
         if(findContact(contact.getName())>=0)
         {
-            System.out.println("MobilePhoneApp.Contact already exits");
+            System.out.println("Contact already exits");
             return false;
         }
         myContacts.add(contact);
