@@ -90,7 +90,7 @@ public class MobilePhone
     }
     public void printContacts()
     {
-        System.out.println("MobilePhoneApp.Contact List");
+        System.out.println("Contact List");
         for(int i = 0; i< this.myContacts.size();i++)
         {
             System.out.println((i+1) +"."+this.myContacts.get(i).getName()+ "->"+

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Branch
 {
     private String name;
-    private String address;
-    private ArrayList<Customer> customers = new ArrayList<Customer>();
+//    private String address;
+    private ArrayList<Customer> customers;
 
-    public Branch (String name,String address)
+    public Branch (String name/*String address*/)
     {
         this.name = name;
-        this.address = address;
+//        this.address = address;
         this.customers = new ArrayList<Customer>();
     }
     public String getName()
@@ -49,5 +49,10 @@ public class Branch
         }
         return null;
 
+    }
+
+    public ArrayList<Customer> getCustomers()
+    {
+        return customers;
     }
 }

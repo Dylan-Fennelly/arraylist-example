@@ -7,10 +7,15 @@ public class Customer
     private String name;
     private ArrayList<Double> Transactions;
 
+    public ArrayList<Double> getTransactions()
+    {
+        return Transactions;
+    }
+
     public Customer(String name, double initialAmount)
     {
         this.name = name;
-        Transactions.add(initialAmount);
+        addTransaction(initialAmount);
     }
 
     public String getName()

@@ -21,5 +21,17 @@ public class Main
          Add data validations- check if it exists or not
          think about where you are adding the code to perform each action
          */
+
+        Bank boi = new Bank("BOI");
+        if(boi.addBranch("BOID"))
+        {
+            System.out.println("Added BOID");
+        }
+        boi.addCustomerTransaction("BOID","Craig",100000);
+        boi.addCustomerTransaction("BOID","Muhammad",10);
+        boi.addCustomerTransaction("BOID","Dylan",100);
+
+//        boi.addCustomerTransaction();
+        System.out.println(0/0);
     }
 }
